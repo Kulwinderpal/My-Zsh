@@ -74,7 +74,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Define Aliases
-alias tree='tree -a -I .git'
 alias cat='bat --paging=never'
 alias bat='bat --paging=never'
 alias cp='cp -i'
@@ -82,11 +81,8 @@ alias mkdir='mkdir -p'
 alias mv='mv -i'
 alias grep=rg
 alias chown='sudo chown'
-alias dnf='sudo dnf'
-alias rpm='sudo rpm'
 alias ls='ls --color'
 alias cd=z
-alias vim=nvim
 
 # Shell Integrations
 eval "$(fzf --zsh)"
