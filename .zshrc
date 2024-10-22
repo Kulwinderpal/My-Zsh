@@ -94,10 +94,14 @@ alias ls='ls --color'
 alias cd=z
 alias ls='ls -a'
 alias ll='ls -lha'
+alias $EDITOR='f(){ if [ -w "$1" ] || [ ! -e "$1" ]; then command nvim "$@"; else sudoedit "$@"; fi; }; f'
 
 # Shell Integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+
+# Define Variables Here
+EDITOR=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
