@@ -92,6 +92,7 @@ alias grep=rg
 alias chown='sudo chown'
 alias ls='ls --color'
 alias cd=z
+alias vim=nvim
 alias ls='ls -a'
 alias ll='ls -lha'
 alias $EDITOR='f(){ if [ -w "$1" ] || [ ! -e "$1" ]; then command nvim "$@"; else sudoedit "$@"; fi; }; f'
