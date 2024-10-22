@@ -40,6 +40,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-history-substring-search
 zinit light Aloxaf/fzf-tab
+zinit light MichaelAquilina/zsh-auto-notify
 
 # Add Snippets Here
 zinit snippet OMZP::gh
@@ -58,6 +59,10 @@ HISTFILE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+
+# Configure Auto Notify
+export AUTO_NOTIFY_THRESHOLD=90
+export AUTO_NOTIFY_TITLE="Hey Lil Bro, %command Finished."
 
 # Set Options for History
 
