@@ -50,6 +50,8 @@ zinit snippet OMZP::man
 zinit snippet OMZP::npm
 zinit snippet OMZP::pip
 zinit snippet OMZP::python
+zinit snippet OMZP::zoxide
+zinit snippet OMZP::z
 
 # Load the Zsh Completions
 autoload -U compinit && compinit
