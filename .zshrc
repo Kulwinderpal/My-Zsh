@@ -92,6 +92,8 @@ alias grep=rg
 alias chown='sudo chown'
 alias ls='ls --color'
 alias cd=z
+alias ls='ls -a'
+alias ll='ls -lha'
 
 # Shell Integrations
 eval "$(fzf --zsh)"
