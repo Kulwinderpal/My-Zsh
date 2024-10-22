@@ -1,12 +1,5 @@
 # Commands to Execute at Startup
 fastfetch
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -21,8 +14,11 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Install and Configure Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# Install and Configure the Pure Prompt
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/Pure
+autoload -U promptinit; promptinit
+zstyle ':prompt:pure:prompt:*' color '#F667BD'
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -51,13 +47,12 @@ zinit snippet OMZP::npm
 zinit snippet OMZP::pip
 zinit snippet OMZP::python
 zinit snippet OMZP::zoxide
-zinit snippet OMZP::z
 
 # Load the Zsh Completions
 autoload -U compinit && compinit
 
 # Configure Zsh History
-HISTFILE=5000
+HISTFILE=7000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -93,9 +88,9 @@ alias chown='sudo chown'
 alias ls='ls --color'
 alias cd=z
 alias vim=nvim
-alias ls='ls -a'
-alias ll='ls -lha'
-alias $EDITOR='f(){ if [ -w "$1" ] || [ ! -e "$1" ]; then command nvim "$@"; else sudoedit "$@"; fi; }; f'
+alias ls='ls -hA'
+alias ll='ls -lhA'
+alias $EDITOR='f(){ if [ -w "$1" ] || [ ! -e "$1" ]; then command $EDITOR "$@"; else sudoedit "$@"; fi; }; f'
 
 # Shell Integrations
 eval "$(fzf --zsh)"
