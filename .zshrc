@@ -18,7 +18,7 @@ autoload -Uz _zinit
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/Pure
 autoload -U promptinit; promptinit
-zstyle ':prompt:pure:prompt:*' color '#F667BD'
+zstyle ':prompt:pure:prompt:*' color '#ff6ac1'
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
