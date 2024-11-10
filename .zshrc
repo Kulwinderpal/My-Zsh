@@ -85,11 +85,10 @@ alias mkdir='mkdir -p'
 alias mv='mv -i'
 alias grep=rg
 alias chown='sudo chown'
-alias ls='ls --color'
 alias cd=z
 alias vim=nvim
-alias ls='ls -hA'
-alias ll='ls -lhA'
+alias ls='ls -hA --color'
+alias ll='ls -lhA --color'
 alias $EDITOR='f(){ if [ -w "$1" ] || [ ! -e "$1" ]; then command $EDITOR "$@"; else sudoedit "$@"; fi; }; f'
 
 # Shell Integrations
