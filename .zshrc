@@ -89,7 +89,6 @@ alias cd=z
 alias vim=nvim
 alias ls='ls -hA --color'
 alias ll='ls -lhA --color'
-alias $EDITOR='f(){ if [ -w "$1" ] || [ ! -e "$1" ]; then command $EDITOR "$@"; else sudoedit "$@"; fi; }; f'
 
 # Shell Integrations
 eval "$(fzf --zsh)"
@@ -98,5 +97,5 @@ eval "$(zoxide init zsh)"
 # Define Variables Here
 EDITOR=nvim
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Set Neovim as the Manpager
+export MANPAGER="nvim +Man!"
