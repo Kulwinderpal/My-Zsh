@@ -90,6 +90,11 @@ alias vim=nvim
 alias ls='ls -hA --color'
 alias ll='ls -lhA --color'
 
+# Add Keybinds here
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^H' backward-kill-word
+
 # Shell Integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
