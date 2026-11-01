@@ -39,14 +39,13 @@ zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-auto-notify
 
 # Add Snippets Here
-zinit snippet OMZP::gh
 zinit snippet OMZP::git
 zinit snippet OMZP::history
 zinit snippet OMZP::man
 zinit snippet OMZP::npm
 zinit snippet OMZP::pip
 zinit snippet OMZP::python
-zinit snippet OMZP::zoxide
+zinit snippet OMZP::zsh-interactive-cd
 
 # Load the Zsh Completions
 autoload -U compinit && compinit
@@ -75,7 +74,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' 
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Define Aliases
 alias cat='bat --paging=never'
@@ -85,7 +83,6 @@ alias mkdir='mkdir -p'
 alias mv='mv -i'
 alias grep=rg
 alias chown='sudo chown'
-alias cd=z
 alias vim=nvim
 alias ls='ls -hA --color'
 alias ll='ls -lhA --color'
@@ -97,7 +94,6 @@ bindkey '^H' backward-kill-word
 
 # Shell Integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
 
 # Define Variables Here
 EDITOR=nvim
