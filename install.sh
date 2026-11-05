@@ -78,12 +78,11 @@ echo "Deploying config files..."
 [ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc.bak
 
 # Downlaods the Config Files
-T=$(mktemp); curl -fsSL https://raw.githubusercontent.com/Kulwinderpal/My-Zsh/refs/heads/main/.zshrc -o "$T" \
-  && mv "$T" ~/.zshrc || { err "Failed to download .zshrc"; rm -f "$T"; }
+D() { command -v curl >/dev/null && curl -fsSL "$1" -o "$2" || wget -q "$1" -O "$2"; }
 
-mkdir -p ~/.config/fastfetch
-T=$(mktemp); curl -fsSL https://raw.githubusercontent.com/Kulwinderpal/My-Zsh/main/config.jsonc -o "$T" \
-  && mv "$T" ~/.config/fastfetch/config.jsonc || { err "Failed to download fastfetch config.jsonc"; rm -f "$T"; }
+T=$(mktemp); D "https://raw.githubusercontent.com/Kulwinderpal/My-Zsh/main/.zshrc" "$T" && mv "$T" ~/.zshrc || { err "Failed to download .zshrc"; rm -f "$T"; }
+
+T=$(mktemp); D "https://raw.githubusercontent.com/Kulwinderpal/My-Zsh/main/config.jsonc" "$T" && mv "$T" ~/.config/fastfetch/config.jsonc || { err "Failed to download Fastfetch config"; rm -f "$T"; }
 
 echo "Done. To make zsh your default shell: chsh -s $(command -v zsh)"
 if [ -f ~/.zshrc.bak ]; then
